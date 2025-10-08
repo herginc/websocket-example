@@ -1,8 +1,7 @@
+from flask import Flask, request
+from flask_socketio import SocketIO
 import eventlet
 eventlet.monkey_patch()
-
-from flask import Flask
-from flask_socketio import SocketIO
 import time
 
 app = Flask(__name__)
@@ -15,14 +14,14 @@ def index():
     return "WebSocket Server is running!"
 
 @socketio.on('connect')
-def handle_connect(sid, environ):
-    print('Client connected:', sid)
-    connected_clients.add(sid)
+def handle_connect():
+    print('Client connected:', request.sid)
+    connected_clients.add(request.sid)
 
 @socketio.on('disconnect')
-def handle_disconnect(sid):
-    print('Client disconnected:', sid)
-    connected_clients.discard(sid)
+def handle_disconnect():
+    print('Client disconnected:', request.sid)
+    connected_clients.discard(request.sid)
 
 def send_periodic_message():
     while True:
