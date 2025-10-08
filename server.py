@@ -35,7 +35,7 @@ def background_task():
     print("後台定時推送服務已啟動...")
     while True:
         # 使用 socketio.sleep 確保在非同步環境中正確等待
-        socketio.sleep(5)  # 每 5 秒推送一次
+        socketio.sleep(300)  # 每 300 秒推送一次
         message_count += 1
         
         data = {
