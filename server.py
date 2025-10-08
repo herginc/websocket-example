@@ -48,7 +48,7 @@ def background_task():
         
         # 使用 emit 廣播到所有連線的客戶端，事件名稱為 'server_response'
         # broadcast=True 是 emit 的預設行為，但明確寫出更清晰
-        socketio.emit('server_response', data, broadcast=True)
+        socketio.emit('server_response', data)
 
 # ----------------------------------------------------------------------
 # 5. WebSocket 事件處理函式
