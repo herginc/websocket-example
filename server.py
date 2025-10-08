@@ -108,7 +108,7 @@ def push_once():
     }
     
     # 向所有客戶端發送訊息
-    socketio.emit('server_response', data, broadcast=True)
+    socketio.emit('server_response', data)
     print(f"手動推送訊息: {data['message']}")
     
     return f"Manual message '{data['message']}' pushed to all clients!"
