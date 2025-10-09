@@ -30,6 +30,9 @@ message_count = 0
 # 4. 後台定時推送訊息的執行緒函式 (Server Push 核心)
 # ----------------------------------------------------------------------
 def background_task():
+    print("[Fake] 後台定時推送服務已啟動...")
+
+def background_task_1():
     """模擬一個在後台定時向所有連線客戶端推送訊息的任務。"""
     global message_count
     print("後台定時推送服務已啟動...")
